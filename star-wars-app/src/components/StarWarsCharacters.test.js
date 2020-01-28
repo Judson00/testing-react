@@ -1,16 +1,50 @@
+// Component.test.js
 import React from 'react';
-import { render, fireEvent, wait } from '@testing-library/react';
+import Enzyme, { mount } from 'enzyme';
+import EnzymeAdapter from 'enzyme-adapter-react-16';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
-import { getData as mockGetData } from '../api';
-import App from '../App';
-import StarWarsCharacters from './StarWarsCharacters';
+import App from '..App/';
+import reducer from './reducer';
 
-jest.mock('../api');
+Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-test('render App',() => {
-  //test if app renders
-  render(<App />)
-})
+describe('<App /> test', () => {
+  const getWrapper = (mockStore = createStore(reducer)) => mount(
+    <Provider store={mockStore}>
+      <App />
+    </Provider>
+  );
+
+  it('should add to count and display the correct # of counts', () => {
+    const wrapper = getWrapper();
+    expect(wrapper.find('h3').text()).toEqual('Count: 0');
+    wrapper.find('button').simulate('click');
+    expect(wrapper.find('h3').text()).toEqual('Count: 1');
+  });
+
+  it('should dispatch the correct action on button click', () => {
+    const mockStore = createStore(reducer, { count: 0 });
+    mockStore.dispatch = jest.fn();
+
+
+
+
+
+// import React from 'react';
+// import { render, fireEvent } from '@testing-library/react';
+
+// import { getData as mockGetData } from '../api';
+// import App from '../App';
+// import StarWarsCharacters from './StarWarsCharacters';
+
+// jest.mock('../api');
+
+// test('render App',() => {
+//   //test if app renders
+//   render(<App />)
+// })
 
 // test('render StarWarsCharacters', () => {
 //   //test if StarWarsCharacters renders

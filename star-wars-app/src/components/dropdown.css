@@ -1,0 +1,24 @@
+button.dropdown-toggle.btn.btn-secondary{
+  background: yellow;
+  font-weight: bold;
+  color: black ;
+}
+
+div.dropdown.show{
+  color:red;
+}
+
+div.dropdown-menu.show{
+  display: flex;
+  background: black;
+}
+
+button.dropdown-item{
+  font-weight: bold;
+  color: yellow;
+}
+
+button.dropdown-item:hover{
+  color: black;
+  background: yellow;
+}

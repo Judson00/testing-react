@@ -12,37 +12,37 @@ test('render App',() => {
   render(<App />)
 })
 
-test('render StarWarsCharacters', () => {
-  //test if StarWarsCharacters renders
-  render(<StarWarsCharacters />)
-})
+// test('render StarWarsCharacters', () => {
+//   //test if StarWarsCharacters renders
+//   render(<StarWarsCharacters />)
+// })
 
-test('check if data is called once initially ', () => {
-  //test of data from the api is only called once
-  mockGetData()
-  expect(mockGetData).toHaveBeenCalledTimes(1);
-})
+// test('check if data is called once initially ', () => {
+//   //test of data from the api is only called once
+//   mockGetData()
+//   expect(mockGetData).toHaveBeenCalledTimes(1);
+// })
 
-test('check if data is called once on next click', () => {
-  //define getByText
-  const { getByText } = render(<StarWarsCharacters />)
+// test('check if data is called once on next click', () => {
+//   //define getByText
+//   const { getByText } = render(<StarWarsCharacters />)
 
-  //set text variables
-  const nextButton = getByText(/next/i);
+//   //set text variables
+//   const nextButton = getByText(/next/i);
 
-  //test if next button calls the api twice
-  fireEvent.click(nextButton)
-  expect(mockGetData).toHaveBeenCalledTimes(1);
-})
+//   //test if next button calls the api twice
+//   fireEvent.click(nextButton)
+//   expect(mockGetData).toHaveBeenCalledTimes(1);
+// })
 
-test('check if data is called once on previous click', () => {
-  //define getByText
-  const { getByText } = render(<StarWarsCharacters />)
+// test('check if data is called once on previous click', () => {
+//   //define getByText
+//   const { getByText } = render(<StarWarsCharacters />)
 
-  //set text variables
-  const previousButton = getByText(/previous/i);
+//   //set text variables
+//   const previousButton = getByText(/previous/i);
 
-  //test if next button calls the api twice
-  fireEvent.click(previousButton)
-  expect(mockGetData).toHaveBeenCalledTimes(1);
-})
+//   //test if next button calls the api twice
+//   fireEvent.click(previousButton)
+//   expect(mockGetData).toHaveBeenCalledTimes(1);
+// })

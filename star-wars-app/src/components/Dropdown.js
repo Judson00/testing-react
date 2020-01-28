@@ -10,7 +10,7 @@ const Menu = (props) => {
   const dispatch = useDispatch();
 
   return (
-    <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+    <Dropdown style={{ marginBottom: "3%" }} isOpen={dropdownOpen} toggle={toggle}>
       <DropdownToggle caret>
         Dropdown
         </DropdownToggle>
